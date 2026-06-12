@@ -1,15 +1,15 @@
----
-layout: default
-title: Buerxzhang
----
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ site.title }}</title>
+    <title>Buerxzhang - 个人主页</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -32,26 +32,10 @@ title: Buerxzhang
             color: white;
         }
 
-        .avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.2);
-            border: 3px solid rgba(255,255,255,0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
-            font-weight: bold;
-            margin: 0 auto 20px;
-            backdrop-filter: blur(10px);
-            animation: fadeInDown 1s ease-out;
-        }
-
         .logo {
             font-size: 3rem;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
             animation: fadeInDown 1s ease-out;
         }
@@ -71,30 +55,15 @@ title: Buerxzhang
             animation: fadeIn 1s ease-out 0.6s both;
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .section-desc {
-            text-align: center;
-            color: #666;
-            margin-bottom: 30px;
-            font-size: 1rem;
-        }
-
-        .project-grid {
+        .feature-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin: 40px 0;
         }
 
-        .project-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .feature-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             color: white;
             padding: 30px;
             border-radius: 15px;
@@ -105,69 +74,47 @@ title: Buerxzhang
             display: block;
         }
 
-        .project-card:hover {
+        .feature-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0,0,0,0.2);
         }
 
-        .project-card:nth-child(2) {
+        .feature-card:nth-child(2) {
             background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
         }
 
-        .project-card:nth-child(3) {
+        .feature-card:nth-child(3) {
             background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-            color: #333;
         }
 
-        .project-icon { font-size: 3rem; margin-bottom: 20px; display: block; }
-        .project-title { font-size: 1.5rem; margin-bottom: 15px; font-weight: bold; }
-        .project-desc { opacity: 0.9; line-height: 1.5; }
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
 
-        .blog-section {
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .feature-description {
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .interactive-section {
             background: #f8f9fa;
             border-radius: 15px;
             padding: 40px;
             margin: 40px 0;
-        }
-
-        .blog-list {
-            list-style: none;
-            margin-top: 20px;
-        }
-
-        .blog-list li {
-            padding: 18px 0;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .blog-list li:last-child { border-bottom: none; }
-
-        .blog-list a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.05rem;
-        }
-
-        .blog-list a:hover { color: #764ba2; }
-
-        .post-date {
-            font-size: 0.85rem;
-            color: #999;
-        }
-
-        .interactive-section {
             text-align: center;
-            margin: 30px 0;
         }
 
         .btn {
             display: inline-block;
-            padding: 14px 32px;
+            padding: 15px 30px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             text-decoration: none;
@@ -177,7 +124,7 @@ title: Buerxzhang
             border: none;
             cursor: pointer;
             font-size: 1rem;
-            margin: 8px;
+            margin: 10px;
         }
 
         .btn:hover {
@@ -185,31 +132,36 @@ title: Buerxzhang
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
-        .btn-pink {
+        .btn-secondary {
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
         }
 
-        .btn-green {
-            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-            color: #333;
-        }
-
-        .contact-links {
+        .stats-section {
             display: flex;
-            justify-content: center;
-            gap: 20px;
+            justify-content: space-around;
             flex-wrap: wrap;
-            margin-top: 20px;
+            margin: 40px 0;
+            text-align: center;
         }
 
-        .contact-link {
+        .stat-item {
+            flex: 1;
+            min-width: 200px;
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
             color: #667eea;
-            text-decoration: none;
-            font-weight: 600;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: #666;
             font-size: 1.1rem;
         }
-
-        .contact-link:hover { color: #764ba2; }
 
         footer {
             text-align: center;
@@ -220,7 +172,10 @@ title: Buerxzhang
 
         .floating-shapes {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             pointer-events: none;
             z-index: -1;
         }
@@ -232,11 +187,45 @@ title: Buerxzhang
             animation: float 6s ease-in-out infinite;
         }
 
-        .shape:nth-child(1) { width: 80px; height: 80px; top: 10%; left: 10%; }
-        .shape:nth-child(2) { width: 60px; height: 60px; top: 20%; right: 15%; animation-delay: 2s; }
-        .shape:nth-child(3) { width: 100px; height: 100px; bottom: 30%; left: 5%; animation-delay: 4s; }
-        .shape:nth-child(4) { width: 40px; height: 40px; bottom: 20%; right: 10%; animation-delay: 1s; }
-        .shape:nth-child(5) { width: 70px; height: 70px; top: 50%; left: 80%; animation-delay: 3s; }
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            top: 20%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            bottom: 30%;
+            left: 5%;
+            animation-delay: 4s;
+        }
+
+        .shape:nth-child(4) {
+            width: 40px;
+            height: 40px;
+            bottom: 20%;
+            right: 10%;
+            animation-delay: 1s;
+        }
+
+        .shape:nth-child(5) {
+            width: 70px;
+            height: 70px;
+            top: 50%;
+            left: 80%;
+            animation-delay: 3s;
+        }
 
         @keyframes float {
             0%, 100% { transform: translateY(0) rotate(0deg); }
@@ -244,138 +233,241 @@ title: Buerxzhang
         }
 
         @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-
-        @media (max-width: 768px) {
-            .logo { font-size: 2rem; }
-            .main-content { padding: 20px; }
-            .project-grid { grid-template-columns: 1fr; }
-            .blog-list li { flex-direction: column; align-items: flex-start; gap: 4px; }
-        }
     </style>
 </head>
 <body>
     <div class="floating-shapes">
-        <div class="shape"></div><div class="shape"></div><div class="shape"></div>
-        <div class="shape"></div><div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
     </div>
 
     <div class="container">
         <header>
-            <div class="avatar">B</div>
-            <div class="logo">{{ site.title }}</div>
-            <div class="subtitle">{{ site.description }}</div>
+            <div class="logo">Buerxzhang</div>
+            <div class="subtitle">小程序 / 云开发 爱好者 · 西安</div>
         </header>
 
         <div class="main-content">
-            <h2 class="section-title">🚀 我的项目</h2>
-            <p class="section-desc">目前正在开发中的开源项目</p>
+            <h2 style="text-align: center; font-size: 1.8rem; margin-bottom: 10px;">🚀 我的项目</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 30px;">目前正在开发中的开源项目</p>
 
-            <div class="project-grid">
-                <a class="project-card" href="https://github.com/Buerxzhang/douyin-watermark-parser" target="_blank">
-                    <span class="project-icon">🎬</span>
-                    <div class="project-title">去水印解析助手</div>
-                    <div class="project-desc">基于微信小程序 + 云开发的抖音视频/图文去水印解析工具</div>
+            <div class="feature-grid">
+                <a class="feature-card" href="https://github.com/Buerxzhang/douyin-watermark-parser" target="_blank">
+                    <span class="feature-icon">🎬</span>
+                    <div class="feature-title">去水印解析助手</div>
+                    <div class="feature-description">
+                        基于微信小程序 + 云开发的抖音视频/图文去水印解析工具。
+                    </div>
                 </a>
-                <a class="project-card" href="https://github.com/Buerxzhang" target="_blank">
-                    <span class="project-icon">💻</span>
-                    <div class="project-title">更多项目</div>
-                    <div class="project-desc">持续学习中，探索技术与产品的更多可能性</div>
+
+                <a class="feature-card" href="https://github.com/Buerxzhang" target="_blank">
+                    <span class="feature-icon">💻</span>
+                    <div class="feature-title">更多项目</div>
+                    <div class="feature-description">
+                        持续学习中，探索小程序与云开发的更多可能性。
+                    </div>
                 </a>
-                <a class="project-card" href="https://github.com/Buerxzhang" target="_blank">
-                    <span class="project-icon">🌟</span>
-                    <div class="project-title">关注我</div>
-                    <div class="project-desc">在 GitHub 上关注我，第一时间获取更新</div>
+
+                <a class="feature-card" href="https://github.com/Buerxzhang" target="_blank">
+                    <span class="feature-icon">🌟</span>
+                    <div class="feature-title">关注我</div>
+                    <div class="feature-description">
+                        在 GitHub 上关注我，第一时间获取项目更新。
+                    </div>
                 </a>
             </div>
 
-            <!-- 博客 -->
-            <div class="blog-section">
-                <h2 class="section-title">📝 最新文章</h2>
-                <p class="section-desc">分享学习心得与技术笔记</p>
-                {% if site.posts.size > 0 %}
-                <ul class="blog-list">
-                    {% for post in site.posts limit:5 %}
-                    <li>
-                        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                        <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
-                    </li>
-                    {% endfor %}
-                </ul>
-                {% else %}
-                <p style="text-align: center; color: #999; padding: 20px 0;">还没有文章，敬请期待 ✨</p>
-                {% endif %}
-            </div>
-
-            <!-- 交互按钮 -->
             <div class="interactive-section">
-                <button class="btn" onclick="animateBtn(this)">✨ 点我试试</button>
-                <button class="btn btn-pink" onclick="changeTheme()">🎨 切换主题</button>
-                <button class="btn btn-green" onclick="showAbout()">💬 关于我</button>
+                <h3 style="margin-bottom: 15px;">📬 互动一下</h3>
+                <p style="color: #666; margin-bottom: 20px;">点击按钮体验页面交互效果</p>
+                <button class="btn" onclick="animateButton(this)">✨ 点我试试</button>
+                <button class="btn btn-secondary" onclick="changeColors()">🎨 切换主题</button>
+                <button class="btn" onclick="showAlert()">💬 关于我</button>
             </div>
 
-            <div class="contact-links">
-                <a class="contact-link" href="https://github.com/Buerxzhang" target="_blank">🔗 GitHub</a>
+            <div class="stats-section">
+                <div class="stat-item">
+                    <span class="stat-number">1</span>
+                    <span class="stat-label">开源项目</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">📍</span>
+                    <span class="stat-label">西安</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">💚</span>
+                    <span class="stat-label">正在学习</span>
+                </div>
             </div>
         </div>
 
         <footer>
-            <p>&copy; {{ site.time | date: "%Y" }} {{ site.author }} &middot; 用 ❤️ 构建</p>
+            <p>© 2026 Buerxzhang · 用 ❤️ 构建</p>
         </footer>
     </div>
 
     <script>
-        function toast(msg) {
-            const t = document.createElement('div');
-            t.textContent = msg;
-            t.style.cssText = 'position:fixed;top:20px;right:20px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;padding:15px 25px;border-radius:10px;box-shadow:0 10px 20px rgba(0,0,0,0.2);z-index:1000;animation:slideInRight .3s ease-out;max-width:300px;';
-            document.body.appendChild(t);
-            setTimeout(() => { t.style.animation = 'slideOutRight .3s ease-in'; setTimeout(() => t.remove(), 300); }, 2500);
+        function showMessage(feature) {
+            const messages = {
+                '按钮点击': '👋 你好！欢迎来到 Buerxzhang 的个人主页！',
+                '主题已切换！': '🌈 主题色已切换，喜欢这个配色吗？',
+                '功能卡片': '💡 点击项目卡片可以跳转到 GitHub 仓库哦！',
+                '用户体验': '🎯 好的设计提升用户体验！',
+                '交互体验': '⚡ 流畅的交互让用户操作更加愉悦！'
+            };
+            
+            const toast = document.createElement('div');
+            toast.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                padding: 15px 25px;
+                border-radius: 10px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+                z-index: 1000;
+                animation: slideInRight 0.3s ease-out;
+                max-width: 300px;
+            `;
+            toast.textContent = messages[feature] || feature;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.animation = 'slideOutRight 0.3s ease-in';
+                setTimeout(() => document.body.removeChild(toast), 300);
+            }, 3000);
         }
 
-        function animateBtn(btn) {
-            btn.style.transform = 'scale(0.95)';
-            setTimeout(() => { btn.style.transform = 'scale(1)'; toast('👋 你好！欢迎来到 Buerxzhang 的个人主页！'); }, 150);
+        function animateButton(button) {
+            button.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                button.style.transform = 'scale(1)';
+                showMessage('按钮点击');
+            }, 150);
         }
 
-        function changeTheme() {
+        function changeColors() {
             const colors = [
                 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
                 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
                 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)'
             ];
-            document.body.style.background = colors[Math.floor(Math.random() * colors.length)];
-            toast('🌈 主题已切换！');
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            document.body.style.background = randomColor;
+            
+            showMessage('主题已切换！');
         }
 
-        function showAbout() {
-            const el = document.createElement('div');
-            el.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;padding:30px;border-radius:15px;box-shadow:0 20px 40px rgba(0,0,0,0.3);z-index:1001;text-align:center;min-width:300px;';
-            el.innerHTML = '<h3 style="margin-bottom:15px;color:#333;">👋 关于我</h3><p style="color:#666;margin-bottom:8px;">大家好，我是 <strong>Buerxzhang</strong></p><p style="color:#666;margin-bottom:8px;">📍 西安 · 小程序 / 云开发 爱好者</p><p style="color:#666;margin-bottom:20px;">热衷于用技术解决实际问题 🚀</p><button onclick="this.parentElement.remove()" style="background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;padding:10px 24px;border-radius:25px;cursor:pointer;font-weight:bold;font-size:16px;">知道啦 👍</button>';
-            document.body.appendChild(el);
+        function showAlert() {
+            const customAlert = document.createElement('div');
+            customAlert.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: white;
+                padding: 30px;
+                border-radius: 15px;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+                z-index: 1001;
+                text-align: center;
+                min-width: 300px;
+            `;
+            
+            customAlert.innerHTML = `
+                <h3 style="color: #333; margin-bottom: 15px;">👋 关于我</h3>
+                <p style="color: #666; margin-bottom: 10px;">大家好，我是 <strong>Buerxzhang</strong></p>
+                <p style="color: #666; margin-bottom: 10px;">📍 西安 · 小程序 / 云开发 爱好者</p>
+                <p style="color: #666; margin-bottom: 20px;">热衷于用技术解决实际问题，持续学习中 🚀</p>
+                <button onclick="this.parentElement.remove()" style="
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    color: white;
+                    border: none;
+                    padding: 10px 20px;
+                    border-radius: 25px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    font-size: 16px;
+                ">知道啦 👍</button>
+            `;
+            
+            document.body.appendChild(customAlert);
         }
 
-        const s = document.createElement('style');
-        s.textContent = '@keyframes slideInRight{from{transform:translateX(100%);opacity:0}to{transform:translateX(0);opacity:1}}@keyframes slideOutRight{from{transform:translateX(0);opacity:1}to{transform:translateX(100%);opacity:0}}';
-        document.head.appendChild(s);
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            
+            @keyframes slideOutRight {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
 
+        // 鼠标跟随效果
         document.addEventListener('mousemove', (e) => {
-            document.querySelectorAll('.shape').forEach((sh, i) => {
-                const sp = (i + 1) * 0.02;
-                sh.style.transform = `translate(${(e.clientX - window.innerWidth/2)*sp}px, ${(e.clientY - window.innerHeight/2)*sp}px)`;
+            const shapes = document.querySelectorAll('.shape');
+            shapes.forEach((shape, index) => {
+                const speed = (index + 1) * 0.02;
+                const x = e.clientX * speed;
+                const y = e.clientY * speed;
+                shape.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        });
+
+        // 滚动动画
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const shapes = document.querySelectorAll('.shape');
+            shapes.forEach((shape, index) => {
+                const speed = (index + 1) * 0.5;
+                shape.style.transform += ` translateY(${scrolled * speed}px)`;
             });
         });
     </script>
