@@ -1,0 +1,20 @@
+---
+layout: post
+title: "Hello World！欢迎来到 Buerxzhang 的个人主页"
+date: 2026-06-12 15:30:00 +0800
+categories: 生活
+---
+
+这是我的第一篇博客文章 🎉
+
+## 关于我
+
+大家好，我是 **Buerxzhang**，一名小程序 / 云开发 爱好者，目前居住在西安。
+
+## 关于这个网站
+
+这个网站使用 GitHub Pages + Jekyll 搭建，支持 Markdown 写博客。
+
+之后会在这里分享我的学习心得、项目经验和技术笔记。
+
+感谢你的访问！🚀

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .back-link {
+            display: inline-block; margin-bottom: 20px; color: rgba(255,255,255,0.8);
+            text-decoration: none; font-size: 1rem; font-weight: 600;
+        }
+        .back-link:hover { color: #fff; }
+        .post-card {
+            background: #fff; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 48px 40px; margin-top: 20px;
+        }
+        .post-title { font-size: 2rem; font-weight: 800; color: #222; margin-bottom: 12px; }
+        .post-meta { font-size: 0.9rem; color: #999; margin-bottom: 32px; }
+        .post-content h2 { font-size: 1.5rem; margin: 28px 0 12px; color: #444; }
+        .post-content h3 { font-size: 1.2rem; margin: 24px 0 10px; color: #555; }
+        .post-content p { margin-bottom: 16px; color: #444; }
+        .post-content a { color: #667eea; }
+        .post-content code {
+            background: #f4f4f8; padding: 2px 8px; border-radius: 4px;
+            font-size: 0.9em; color: #764ba2;
+        }
+        .post-content pre {
+            background: #1a1a2e; color: #e0e0e0; padding: 20px; border-radius: 12px;
+            overflow-x: auto; margin: 16px 0;
+        }
+        .post-content pre code { background: none; color: inherit; padding: 0; }
+        .post-content ul, .post-content ol { padding-left: 24px; margin-bottom: 16px; }
+        .post-content li { margin-bottom: 6px; }
+        .post-content blockquote {
+            border-left: 4px solid #667eea; padding: 12px 20px; margin: 16px 0;
+            background: #f8f8ff; border-radius: 0 8px 8px 0; color: #555;
+        }
+        .post-content img { max-width: 100%; border-radius: 12px; margin: 16px 0; }
+        footer { text-align: center; padding: 32px 0; color: rgba(255,255,255,0.6); font-size: 0.85rem; }
+        @media (max-width: 600px) {
+            .post-card { padding: 28px 20px; }
+            .post-title { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a class="back-link" href="/">← 返回首页</a>
+        <div class="post-card">
+            <h1 class="post-title">{{ page.title }}</h1>
+            <p class="post-meta">{{ page.date | date: "%Y 年 %m 月 %d 日" }}</p>
+            <div class="post-content">
+                {{ content }}
+            </div>
+        </div>
+        <footer>&copy; {{ site.time | date: "%Y" }} {{ site.author }} &middot; 用 ❤️ 构建</footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+title: Buerxzhang
+description: 小程序 / 云开发 爱好者
+author: Buerxzhang
+baseurl: ""
+url: "https://Buerxzhang.github.io"
+lang: zh-CN
+
+# 不使用主题，完全自定义样式
+theme: null
+
+# 插件（只保留 feed 用于 RSS）
+plugins:
+  - jekyll-feed
+
+# 分页
+paginate: 5
+paginate_path: "/blog/page:num/"
+
+# 排除
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
